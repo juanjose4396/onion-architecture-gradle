@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+sourceCompatibility = 1.8
+
+allprojects {
+	group 'xpert.group.onion'
+	version '1.0-SNAPSHOT'
+
+}
+
+repositories {
+	mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'    
+}
