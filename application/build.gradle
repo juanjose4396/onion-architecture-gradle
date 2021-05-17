@@ -9,7 +9,7 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.12'
+    testImplementation project.ext.junit
     implementation project(':domain')
-    implementation 'javax.inject:javax.inject:1'
+    implementation project.ext.springcontext
 }

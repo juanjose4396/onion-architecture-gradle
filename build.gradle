@@ -5,9 +5,19 @@ plugins {
 sourceCompatibility = 1.8
 
 allprojects {
-	group 'xpert.group.onion'
+	group 'juan.perdomo.onion'
 	version '1.0-SNAPSHOT'
 
+    project.ext.springcontext = ["org.springframework:spring-context:${springversion}"]
+    project.ext.springboot = ["org.springframework.boot:spring-boot-starter-web:${springbootversion}",
+                              "org.springframework.boot:spring-boot-starter-actuator:${springbootversion}",
+                              "org.springframework.boot:spring-boot-starter-actuator:${springbootversion}"]
+    project.ext.springboottomcat = ["org.springframework.boot:spring-boot-starter-tomcat"]
+    project.ext.springbootconfigurationprocessor = ["org.springframework.boot:spring-boot-configuration-processor:${springbootversion}"]
+    project.ext.springdevtools = ["org.springframework.boot:spring-boot-devtools:${springbootversion}"]
+    project.ext.swagger = [	"io.springfox:springfox-swagger2:${swaggerversion}",
+                               "io.springfox:springfox-swagger-ui:${swaggerversion}"]
+    project.ext.junit = ["junit:junit:${junitversion}"]
 }
 
 repositories {
@@ -16,5 +26,5 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.12'    
+    testImplementation project.ext.junit
 }
