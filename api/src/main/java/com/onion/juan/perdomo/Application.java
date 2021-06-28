@@ -8,10 +8,10 @@ import com.onion.juan.perdomo.config.properties.SwaggerProperties;
 
 @SpringBootApplication
 @EnableConfigurationProperties(SwaggerProperties.class)
-public class ApiApplication {
+public class Application {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ApiApplication.class, args);
+	public static void main(String ...args) {
+		SpringApplication.run(Application.class, args);
 	}
 
 }

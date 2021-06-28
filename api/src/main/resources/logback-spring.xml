@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <springProperty scope="context" name="LOG_FILE_PATH" source="log.file.path" defaultValue="NA"/>
+    <springProperty scope="context" name="SPRING_PROFILE_ACTIVE" source="spring.profiles.active" defaultValue="NA"/>
+    <include resource="logback/logback-${SPRING_PROFILE_ACTIVE}.xml" />
+</configuration>
