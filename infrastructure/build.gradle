@@ -1,12 +1,8 @@
-plugins {
-    id 'java'
-}
+apply plugin: 'java'
 
 sourceCompatibility = 1.8
 
-repositories {
-    jcenter()
-}
+repositories {}
 
 dependencies {
     testImplementation project.ext.junit

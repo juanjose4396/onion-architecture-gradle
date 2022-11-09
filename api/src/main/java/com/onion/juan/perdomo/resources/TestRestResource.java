@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(ApiProperties.API_BASE_PATH + "/test")
 public class TestRestResource implements TestResource {
 
     private final TestApplication testApplication;

@@ -1,15 +1,12 @@
-plugins {
-    id 'java'
-}
+apply plugin: 'java'
 
 sourceCompatibility = 1.8
 
-repositories {
-    jcenter()
-}
+repositories {}
 
 dependencies {
     testImplementation project.ext.junit
     implementation project(':domain')
     implementation project.ext.springcontext
+    implementation project.ext.springtx
 }

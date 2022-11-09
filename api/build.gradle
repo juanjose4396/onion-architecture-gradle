@@ -1,12 +1,5 @@
-plugins {
-	id 'org.springframework.boot' version '2.3.3.RELEASE'
-	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
-	id 'java'
-	id 'war'
-}
+apply plugin: 'java'
 
-group = 'com.onion.juan.perdomo'
-version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 configurations {
@@ -15,19 +8,12 @@ configurations {
 	}
 }
 
-repositories {
-	mavenCentral()
-}
+repositories {}
 
 dependencies {
-	implementation project.ext.springboot
-	developmentOnly project.ext.springdevtools
+	implementation project.ext.springbootweb
+	implementation project.ext.springbootactuactor
 	annotationProcessor project.ext.springbootconfigurationprocessor
-	providedRuntime project.ext.springboottomcat
-
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
 
 	implementation project.ext.swagger
 

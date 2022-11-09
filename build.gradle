@@ -1,18 +1,20 @@
-plugins {
-    id 'java'
-}
-
-sourceCompatibility = 1.8
-
 allprojects {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
 	group 'juan.perdomo.onion'
 	version '1.0-SNAPSHOT'
 
+    tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }
+    tasks.withType(Test) { systemProperty "file.encoding", "UTF-8" }
+
+    project.ext.springbootweb = ["org.springframework.boot:spring-boot-starter-web:${springbootversion}"]
     project.ext.springcontext = ["org.springframework:spring-context:${springversion}"]
-    project.ext.springboot = ["org.springframework.boot:spring-boot-starter-web:${springbootversion}",
-                              "org.springframework.boot:spring-boot-starter-actuator:${springbootversion}",
-                              "org.springframework.boot:spring-boot-starter-actuator:${springbootversion}"]
-    project.ext.springboottomcat = ["org.springframework.boot:spring-boot-starter-tomcat"]
+    project.ext.springtx = ["org.springframework:spring-tx:${springversion}"]
+    project.ext.springbootundertow = ["org.springframework.boot:spring-boot-starter-undertow"]
+    project.ext.springbootactuactor = ["org.springframework.boot:spring-boot-starter-actuator:${springbootversion}"]
     project.ext.springbootconfigurationprocessor = ["org.springframework.boot:spring-boot-configuration-processor:${springbootversion}"]
     project.ext.springdevtools = ["org.springframework.boot:spring-boot-devtools:${springbootversion}"]
     project.ext.swagger = [	"io.springfox:springfox-swagger2:${swaggerversion}",
@@ -20,11 +22,37 @@ allprojects {
     project.ext.junit = ["junit:junit:${junitversion}"]
 }
 
-repositories {
-	mavenCentral()
-    jcenter()
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springbootversion}")
+    }
 }
 
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+sourceCompatibility = 1.8
+
+repositories {}
+
 dependencies {
-    testImplementation project.ext.junit
+    configurations {
+        runtime.exclude module: 'spring-boot-starter-tomcat'
+        compile.exclude module: 'spring-boot-starter-tomcat'
+    }
+
+    implementation project.ext.springbootweb
+    runtimeOnly project.ext.springdevtools
+
+    implementation project.ext.springbootundertow
+}
+
+bootJar {
+    mainClassName = 'com.onion.juan.perdomo'
+    baseName = 'onion'
+    version =  version
 }
