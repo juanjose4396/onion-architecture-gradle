@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@PropertySource("classpath:swagger.properties")
+@PropertySource("classpath:swagger.yml")
 @ConfigurationProperties("swagger.config")
 public class SwaggerProperties {
 	

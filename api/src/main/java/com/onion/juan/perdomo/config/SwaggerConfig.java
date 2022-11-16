@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -27,9 +28,9 @@ import springfox.documentation.service.Contact;
 import springfox.documentation.service.ResponseMessage;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
-@EnableSwagger2
 @Configuration
+@EnableSwagger2
+@EnableConfigurationProperties(SwaggerProperties.class)
 public class SwaggerConfig {
 	
 	@Autowired

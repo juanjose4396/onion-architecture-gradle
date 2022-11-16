@@ -1,0 +1,29 @@
+## profile active
+spring:
+  application:
+    name: onion
+  profiles:
+    active: dev
+server:
+  servlet:
+    context-path: /onion
+
+##Custom Properties
+api:
+  basepath: /api/v1
+
+#log config
+log:
+  file:
+    path: ./logs
+
+##actuator configs
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,info,metrics
+  endpoint:
+    health:
+      enabled: 'true'
+      show-details: always

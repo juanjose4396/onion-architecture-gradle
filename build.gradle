@@ -49,6 +49,8 @@ dependencies {
     runtimeOnly project.ext.springdevtools
 
     implementation project.ext.springbootundertow
+
+    implementation project(":api")
 }
 
 bootJar {

@@ -1,0 +1,16 @@
+##propiedades de configuracion para el swagger
+swagger:
+  config:
+    licenseurl: https://www.linkedin.com/in/juan-jose-perdomo-forero-647520160/
+    title: ONION API RESTful services
+    description: Implementacion personalizada de arquitectura ONION
+    license: Juan Perdomo
+    contacturl: https://www.linkedin.com/in/juan-jose-perdomo-forero-647520160/
+    version: 0.0.1-SNAPSHOT
+    messageforbidden: Accessing the resource you were trying to reach is forbidden
+    messagenotfound: The resource you were trying to reach is not found
+    contactname: Juan Jose Perdomo
+    contactmail: juanjose4396@gmail.com
+    messageunauthorized: You are not authorized to view the resource
+    basepackage: com.onion.juan.perdomo
+    messageinternalservererror: Internal Server Error

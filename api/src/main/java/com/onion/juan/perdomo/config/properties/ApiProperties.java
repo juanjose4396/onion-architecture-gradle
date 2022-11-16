@@ -4,6 +4,6 @@ import org.springframework.beans.factory.annotation.Value;
 
 public class ApiProperties {
 
-    @Value("$[api.basepath]")
+    @Value("${api.basepath}")
     public static final String API_BASE_PATH = "/api";
 }
