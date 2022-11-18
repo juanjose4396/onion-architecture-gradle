@@ -30,7 +30,6 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
-@EnableConfigurationProperties(SwaggerProperties.class)
 public class SwaggerConfig {
 	
 	@Autowired
@@ -38,7 +37,7 @@ public class SwaggerConfig {
 	
 	@Bean
 	public Docket api() {
-		return new Docket(SWAGGER_2).select().apis(RequestHandlerSelectors.basePackage(swaggerProperties.getBasepackage()))
+		return new Docket(SWAGGER_2).select().apis(RequestHandlerSelectors.basePackage(swaggerProperties.getBasePackage()))
 				.paths(PathSelectors.any()).build()
 				.apiInfo(metaData(swaggerProperties.getTitle(),
 						swaggerProperties.getDescription(),
@@ -52,20 +51,20 @@ public class SwaggerConfig {
 
 	private ApiInfo metaData(String title, String description, String version) {
 		return new ApiInfoBuilder().title(title).description(description).version(version).license(swaggerProperties.getLicense())
-				.licenseUrl(swaggerProperties.getLicenseurl())
-				.contact(new Contact(swaggerProperties.getContactname(), swaggerProperties.getContacturl(), swaggerProperties.getContactmail()))
+				.licenseUrl(swaggerProperties.getLicenseUrl())
+				.contact(new Contact(swaggerProperties.getContactName(), swaggerProperties.getContactUrl(), swaggerProperties.getContactMail()))
 				.build();
 	}
 
 	private List<ResponseMessage> defaultMessages() {
 		List<ResponseMessage> messages = new ArrayList<>();
 		messages.add(new ResponseMessageBuilder().code(UNAUTHORIZED.value())
-				.message(swaggerProperties.getMessageunauthorized()).build());
+				.message(swaggerProperties.getMessageUnauthorized()).build());
 		messages.add(new ResponseMessageBuilder().code(FORBIDDEN.value())
-				.message(swaggerProperties.getMessageforbidden()).build());
+				.message(swaggerProperties.getMessageForbidden()).build());
 		messages.add(new ResponseMessageBuilder().code(NOT_FOUND.value())
-				.message(swaggerProperties.getMessagenotfound()).build());
-		messages.add(new ResponseMessageBuilder().code(INTERNAL_SERVER_ERROR.value()).message(swaggerProperties.getMessageinternalservererror())
+				.message(swaggerProperties.getMessageNotFound()).build());
+		messages.add(new ResponseMessageBuilder().code(INTERNAL_SERVER_ERROR.value()).message(swaggerProperties.getMessageInternalServerError())
 				.build());
 		return messages;
 	}

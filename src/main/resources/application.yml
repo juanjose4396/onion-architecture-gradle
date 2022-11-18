@@ -1,3 +1,6 @@
+##Custom Properties
+api:
+  base-path: /api/v1
 ## profile active
 spring:
   application:
@@ -6,17 +9,11 @@ spring:
     active: dev
 server:
   servlet:
-    context-path: /onion
-
-##Custom Properties
-api:
-  basepath: /api/v1
-
+    context-path: /onion${api.basepath}
 #log config
 log:
   file:
     path: ./logs
-
 ##actuator configs
 management:
   endpoints:
