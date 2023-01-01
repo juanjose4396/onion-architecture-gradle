@@ -11,14 +11,10 @@ import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 import static springfox.documentation.spi.DocumentationType.SWAGGER_2;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import com.onion.juan.perdomo.config.properties.SwaggerProperties;
-
+import com.onion.juan.perdomo.config.property.SwaggerProperties;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -31,7 +27,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
-	
 	@Autowired
 	private SwaggerProperties swaggerProperties;
 	

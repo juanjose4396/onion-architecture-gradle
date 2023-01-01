@@ -1,6 +1,6 @@
-package com.onion.juan.perdomo.resources.interfaces;
+package com.onion.juan.perdomo.example.resource;
 
-import com.onion.juan.perdomo.dto.Test;
+import com.onion.juan.perdomo.service.example.dto.Example;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping( "/test")
 @Api("Test resource")
-public interface TestResource {
+public interface ExampleResource {
     @ApiOperation(
             value = "send-code",
             response = Long.class,
@@ -20,5 +20,5 @@ public interface TestResource {
             produces = "application/json")
     @ApiResponses(value = {@ApiResponse(code = 200, message = "When every thing went OK")})
     @PostMapping
-    ResponseEntity<Long> save(@RequestBody Test test);
+    ResponseEntity<Long> save(@RequestBody Example test);
 }

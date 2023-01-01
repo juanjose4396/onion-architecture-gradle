@@ -1,4 +1,4 @@
-package com.onion.juan.perdomo.config.properties.factory;
+package com.onion.juan.perdomo.config.property.factory;
 
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.core.env.PropertiesPropertySource;

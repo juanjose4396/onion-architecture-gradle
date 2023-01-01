@@ -1,8 +1,8 @@
 package com.onion.juan.perdomo.config;
 
-import com.onion.juan.perdomo.repositories.TestRepository;
-import com.onion.juan.perdomo.servicios.TestServiceImpl;
-import com.onion.juan.perdomo.servicios.interfaces.TestService;
+import com.onion.juan.perdomo.service.example.repository.ExampleRepository;
+import com.onion.juan.perdomo.service.example.ExampleDomainService;
+import com.onion.juan.perdomo.service.example.ExampleService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class BeansConfig {
 
     @Bean
-    public TestService testService(TestRepository testRepository) {
-        return new TestServiceImpl(testRepository);
+    public ExampleService testService(ExampleRepository testRepository) {
+        return new ExampleDomainService(testRepository);
     }
 }
