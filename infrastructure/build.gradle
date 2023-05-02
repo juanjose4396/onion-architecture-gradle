@@ -6,6 +6,6 @@ repositories {}
 
 dependencies {
     testImplementation project.ext.junit
-    implementation project.ext.springcontext
+    implementation project.ext.springbootweb
     implementation project(':domain')
 }
